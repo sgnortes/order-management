@@ -1,0 +1,61 @@
+#################################
+## COMMON SERVER CONFIGURATION ##
+#################################
+server:
+  error:
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
+    include-exception: false
+
+###################################
+## COMMON DATABASE CONFIGURATION ##
+###################################
+spring:
+  h2.console.enabled: false
+  ## Allowing batch update to improve performance
+  jpa:
+    properties.hibernate.jdbc.batch_size: 100
+    properties.hibernate.order_updates: true
+    properties.hibernate.batch_versioned_data: true
+  jpa-custom-config:
+    batch-size: 100
+
+#############################################
+## COMMON OPEN API - SWAGGER CONFIGURATION ##
+#############################################
+springdoc:
+  api-docs:
+    enabled: false
+    path: /api-docs
+  swagger-ui:
+    enabled: false
+    path: /swagger-ui
+    tryItOutEnabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+  packages-to-scan: com.sgnortes.ordermanagement
+
+# Custom properties to show more info in Swagger ui.
+swagger-custom-properties:
+  serversInfo:
+    - url: http://localhost:8083
+      description: Server URL in local environment
+  contactEmail: s.garcianortes@gmail.com
+  contactName: Sergio
+  apiTitle: Order Management API
+  apiVersion: 0.1.0
+  apiDescription: This API exposes endpoints to manage orders, customers and products.
+
+#############
+## LOGGING ##
+#############
+# Logging config for SQL queries
+spring.jpa.show-sql: false
+spring.jpa.properties.hibernate.format_sql: false
+
+############################
+## SECURITY CONFIGURATION ##
+############################
+custom-security.secret-key: 3458234929429520529852059F2525G2352
+
