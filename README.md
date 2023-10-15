@@ -16,6 +16,7 @@ In this project I am applying the following technologies:
 - **Mapstruct**
 - **H2** to create an in-memory database
 - **Javadoc** for code documentation
+- **Spring Validation** for endpoint validations
 
 Notes:
 - **Lombok**: I quit Lombok, because I decided to switch my IDE (I went from using eclipse to IntelliJ) and it gave me some problems with the new IDE. In the future I will solve this issue.
