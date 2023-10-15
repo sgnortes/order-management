@@ -40,8 +40,8 @@ Currently, it contains two APIs with the following endpoints:
 To make the project work in your local computer you will need to follow this steps:
 
 1. Git clone your project in your local computer.
-2. Run the mvn 'clean install' command.
-3. Run the the project: 'mvn spring-boot:run -D spring-boot.run.profiles=localdev'
+2. Run the mvn **clean install** command.
+3. Run the the project: **mvn spring-boot:run -D spring-boot.run.profiles=localdev**
 
 Notes: the localdev profile contains specific configuration to run the project in your local machine.
 
@@ -51,8 +51,8 @@ The endpoints are secured, so in order to call Customer API V1 endpoints you wil
 
 Steps to follow:
 
-1. Create new user using POST (auth/v1/addNewUser) endpoint.
-2. Generate a token for this user using POST (auth/v1/generateToken) endpoint.
-3. Introduce the generated token in your request. In swagger you can do it easily by clicking the lock that appears at the right of the screen and introducing the JWT token that was generated in step 2.
+1. **Create new user** using POST (auth/v1/addNewUser) endpoint.
+2. **Generate a token** for this user using POST (auth/v1/generateToken) endpoint.
+3. **Introduce the generated token in your request.** In swagger you can do it easily by clicking the lock that appears at the right of the screen and introducing the JWT token that was generated in step 2.
 
 Notes: the current available roles you can use when adding a new user are: ROLE_ADMIN and ROLE_USER
