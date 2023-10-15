@@ -40,8 +40,8 @@ Currently, it contains two APIs with the following endpoints:
 To make the project work in your local computer you will need to follow this steps:
 
 1. Git clone your project in your local computer.
-2. Run the mvn clean install command.
-3. Run the the project: mvn spring-boot:run -D spring-boot.run.profiles=localdev
+2. Run the mvn 'clean install' command.
+3. Run the the project: 'mvn spring-boot:run -D spring-boot.run.profiles=localdev'
 
 Notes: the localdev profile contains specific configuration to run the project in your local machine.
 
