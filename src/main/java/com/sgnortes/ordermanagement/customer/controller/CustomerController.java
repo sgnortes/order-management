@@ -18,6 +18,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import com.sgnortes.ordermanagement.common.constants.SecurityPermissions;
 
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @GetMapping
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize(SecurityPermissions.USER_AUTHORITY)
     public ResponseEntity<PageDto<CustomerDto>> getCustomerPagedAndSorted(@ParameterObject CustomerPagingDto dto){
         return ResponseEntity.ok(customerService.findAllPaginatedFilteredAndSorted(dto));
     }
@@ -65,6 +66,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PostMapping
+    @PreAuthorize(SecurityPermissions.ADMIN_AUTHORITY)
     public ResponseEntity<Void> create(@RequestBody @Valid @Schema(example = CUSTOM_DTO_EXAMPLE_CREATE) CustomerDto dto){
             customerService.create(dto);
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -77,6 +79,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PutMapping
+    @PreAuthorize(SecurityPermissions.ADMIN_AUTHORITY)
     public ResponseEntity<Void> update(@RequestBody @Valid CustomerDto dto){
         customerService.update(dto);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -89,6 +92,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PutMapping("/batch")
+    @PreAuthorize(SecurityPermissions.ADMIN_AUTHORITY)
     public ResponseEntity<Void> batchUpdate(@RequestBody @Valid List<CustomerDto> dtos){
         customerService.batchUpdate(dtos);
         return new ResponseEntity<>(HttpStatus.OK);
