@@ -54,7 +54,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @GetMapping
-    @PreAuthorize(SecurityPermissions.USER_AUTHORITY)
+    @PreAuthorize(SecurityPermissions.READ_PERMISSION)
     public ResponseEntity<PageDto<CustomerDto>> getCustomerPagedAndSorted(@ParameterObject CustomerPagingDto dto){
         return ResponseEntity.ok(customerService.findAllPaginatedFilteredAndSorted(dto));
     }
@@ -66,7 +66,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PostMapping
-    @PreAuthorize(SecurityPermissions.ADMIN_AUTHORITY)
+    @PreAuthorize(SecurityPermissions.ADMIN_PERMISSION)
     public ResponseEntity<Void> create(@RequestBody @Valid @Schema(example = CUSTOM_DTO_EXAMPLE_CREATE) CustomerDto dto){
             customerService.create(dto);
             return new ResponseEntity<>(HttpStatus.CREATED);
@@ -79,7 +79,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PutMapping
-    @PreAuthorize(SecurityPermissions.ADMIN_AUTHORITY)
+    @PreAuthorize(SecurityPermissions.ADMIN_PERMISSION)
     public ResponseEntity<Void> update(@RequestBody @Valid CustomerDto dto){
         customerService.update(dto);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -92,7 +92,7 @@ public class CustomerController {
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
     @PutMapping("/batch")
-    @PreAuthorize(SecurityPermissions.ADMIN_AUTHORITY)
+    @PreAuthorize(SecurityPermissions.ADMIN_PERMISSION)
     public ResponseEntity<Void> batchUpdate(@RequestBody @Valid List<CustomerDto> dtos){
         customerService.batchUpdate(dtos);
         return new ResponseEntity<>(HttpStatus.OK);
