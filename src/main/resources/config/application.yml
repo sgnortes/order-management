@@ -57,5 +57,5 @@ spring.jpa.properties.hibernate.format_sql: false
 ############################
 ## SECURITY CONFIGURATION ##
 ############################
-custom-security.secret-key: 3458234929429520529852059F2525G2352
+custom-security.secret-key: 5367566B59703373367639792Z423G4528482B4D6251655468576D5A71347734
 
