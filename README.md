@@ -4,6 +4,9 @@ This is a personal project that I recently started with the main goal of applyin
 
 The project is not finished, but I think that it contains some interesting things that I've learned while working in my job and in my spare time.
 
+## Video explanation
+I posted the following video explaining briefly the current state of the project: [Link to video.](https://youtu.be/OslgBZVHs00)
+
 ## What technologies I am using?
 
 In this project I am applying the following technologies:
